@@ -18,6 +18,13 @@ const argv = require("yargs")
       desc: "Marca como completado o pendiente el TODO",
     },
   })
+  .command('borrar','Borra un elemento TODO',{
+    descripcion:{
+      demand: true,
+      alias: 'd',
+      desc: 'Borra el TODO seleccionado'
+    }
+  })
   .help().argv;
 
   module.exports = {
