@@ -9,7 +9,16 @@ const guardarDB = () => {
   });
 };
 
+const cargarDB = () => {
+  try {
+    listadoPorHacer = require("../db/data.json");
+  } catch (error) {
+      listadoPorHacer=[]
+  }
+};
+
 const crear = (descripcion) => {
+  cargarDB();
   let porHacer = {
     descripcion,
     completado: false,
