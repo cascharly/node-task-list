@@ -24,10 +24,19 @@ const crear = (descripcion) => {
     completado: false,
   };
 
-  listadoPorHacer.push(porHacer);
-  guardarDB();
+  let index = listadoPorHacer.findIndex((tarea) => {
+    return tarea.descripcion === descripcion;
+  });
 
-  return porHacer;
+  if (index >= 0) {
+    console.log("Tarea duplicada");
+    return false;
+  } else {
+    listadoPorHacer.push(porHacer);
+    guardarDB();
+
+    return porHacer;
+  }
 };
 
 const getListado = () => {
