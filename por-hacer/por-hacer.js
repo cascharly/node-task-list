@@ -13,7 +13,7 @@ const cargarDB = () => {
   try {
     listadoPorHacer = require("../db/data.json");
   } catch (error) {
-      listadoPorHacer=[]
+    listadoPorHacer = [];
   }
 };
 
@@ -30,6 +30,12 @@ const crear = (descripcion) => {
   return porHacer;
 };
 
+const getListado = () => {
+  cargarDB();
+  return listadoPorHacer;
+};
+
 module.exports = {
   crear,
+  getListado
 };
