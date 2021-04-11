@@ -1,32 +1,28 @@
+const descripcion = {
+  demand: true,
+  alias: "d",
+  desc: "Descripcion del TODO",
+};
+
+const completado = {
+  default: true,
+  alias: "c",
+  desc: "Marca como completado o pendiente el TODO",
+};
+
 const argv = require("yargs")
   .command("crear", "Crear un elemento TODO", {
-    descripcion: {
-      demand: true,
-      alias: "d",
-      desc: "Descripcion del TODO",
-    },
+    descripcion,
   })
   .command("actualizar", "Actualizar el estado completado de un TODO", {
-    descripcion: {
-      demand: true,
-      alias: "d",
-      desc: "Descripcion del TODO",
-    },
-    completado: {
-      default: true,
-      alias: "c",
-      desc: "Marca como completado o pendiente el TODO",
-    },
+    descripcion,
+    completado,
   })
-  .command('borrar','Borra un elemento TODO',{
-    descripcion:{
-      demand: true,
-      alias: 'd',
-      desc: 'Borra el TODO seleccionado'
-    }
+  .command("borrar", "Borra un elemento TODO", {
+    descripcion,
   })
   .help().argv;
 
-  module.exports = {
-      argv
-  }
+module.exports = {
+  argv,
+};
